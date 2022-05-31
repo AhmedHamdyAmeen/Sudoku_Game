@@ -92,6 +92,7 @@ async function getData() {
     response = await fetch('https://sudoku-api.deta.dev/?type=4');
     let data4x4 = await response.json();
 
+    // Send the fetched data to the CreatArrayOfArray() method to convert it the the suitable form
     let feedBoard = data4x4.board;
     let feedSolution = data4x4.solution;
 
@@ -156,16 +157,18 @@ function initializeGame(e) {
 
 
   // b ) Create Game Board & Game Image Bar
+  // startGameBtn.addEventListener('click',);
   if (userLevel == 'levelOne') {
     board.classList.add("board4");
     createImgBar(4, selectedGroup);
 
     startGameBtn.addEventListener('click', function (e) {
+      console.log(selectedGroup);
       e.preventDefault();
       createBoard(4, 4, selectedGroup);
       countDownTimer(60);
       startSelecting();
-    });
+    }, { once: true });
 
   } else if (userLevel == 'levelTwo') {
     board.classList.add("board9");
@@ -176,7 +179,7 @@ function initializeGame(e) {
       createBoard(9, 9, selectedGroup);
       countDownTimer(120);
       startSelecting();
-    });
+    }, { once: true });
   }
 
   // c ) selectTileImg & selectBarImg
@@ -422,8 +425,10 @@ function playAgin(e) {
   errorCount.innerText = errors;
   // Reset Timer & clearInterval
   clearInterval(countInterval);
+
   // getData(); // fetch data again
   // getLogin(e); // call get login again to update the board grid array and its solution
+
 
   groups.classList.remove("hide"); // Show Group Message
   // groupBtn.forEach(btn => {
