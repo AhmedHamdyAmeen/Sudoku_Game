@@ -324,7 +324,9 @@ function finishGame(status) {
     showWingingMessage();
   }
   if (status == 'GameOver') {
-
+    // Change the Background of the Message Section to winingBg
+    message.style.backgroundImage = `url(./assets/imgs/messages/gameOver/1.jpg`;
+    message.style.backgroundSize = "cover";
     showGameOverMessage();
   }
 }
