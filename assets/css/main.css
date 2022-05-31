@@ -1,0 +1,340 @@
+/* Start Variables */
+/* :root {} */
+
+/* End Variables */
+
+/* Start Component */
+.hide {
+  display: none;
+}
+
+/* End Component */
+
+/* Start Global Rules */
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Rest Some properties */
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+ul {
+  padding-left: 0%;
+}
+
+/* Small Screens */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* Medium Screens */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/* Large Screens */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* End Global Rules */
+
+/* * Home */
+.home {
+  background: url('../imgs/bg/1.jpg');
+  background-size: cover;
+  height: 100vh;
+}
+
+.home .container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home .login {
+  background: #fc9d7ba1;
+  width: 350px;
+  height: 350px;
+  position: relative;
+
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.home .login form {
+  width: 100%;
+  padding: 0px 15px;
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+.home .login form .invalid {
+  color: red;
+  font-weight: bolder;
+}
+
+/* End Home */
+
+/*  * Groups */
+.groups {
+  background: url('../imgs/bg/17.jpg');
+  background-size: cover;
+  height: 100vh;
+}
+
+.groups .container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.groups .img-groups {
+  background: #fc9d7ba1;
+  position: relative;
+
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.groups .img-groups.row {
+  width: 100%;
+}
+
+.groups .img-groups .group {
+  text-align: center;
+}
+
+.groups .img-groups .group .gallery img {
+  width: 60px;
+  height: 60px;
+}
+
+/*  End Groups */
+
+/* * Game Board */
+.gameBoard {
+  background: url('../imgs/bg/6.jpg');
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  transition: all 0.6s ease;
+  -webkit-transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -ms-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+}
+
+.gameBoard .container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.gameBoard .topBarControl {
+  /* position: absolute;
+  top: 0px;
+  left: 0px; */
+  padding: 15px;
+  color: white;
+  background: #fc9d7ba1;
+  text-align: center;
+}
+
+.gameBoard .topBarControl>div {
+  margin-bottom: 10px;
+}
+
+.gameBoard .topBarControl .welcome {
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+}
+
+.gameBoard .topBarControl .errorCount {
+  color: coral;
+}
+
+.gameBoard .topBarControl .downCounter {
+  color: greenyellow;
+}
+
+.gameBoard .board {
+  display: flex;
+  flex-wrap: wrap;
+
+  background: #fc9d7ba1;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+
+  overflow: hidden;
+}
+
+.gameBoard .board4 {
+  width: 400px;
+  height: 400px;
+}
+
+.gameBoard .board9 {
+  width: 540px;
+  height: 540px;
+}
+
+.gameBoard .board .tile4,
+.gameBoard .board .tile9 {
+  border: 1px solid maroon;
+  margin: 0;
+}
+
+.gameBoard .board .tile4 {
+  width: 100px;
+  height: 100px;
+}
+
+
+.gameBoard .board .tile9 {
+  width: 60px;
+  height: 60px;
+}
+
+.gameBoard .board .tile img {
+  width: 100%;
+  height: 100%;
+}
+
+.gameBoard .imgBar {
+  padding: 10px;
+  text-align: center;
+  background: #fc9d7ba1;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  z-index: 10;
+}
+
+.gameBoard .imgBar img {
+  width: 60px;
+  height: 60px;
+}
+
+.gameBoard .imgBar img.selectedImg {
+  border: 2px solid black;
+}
+
+@media (max-width: 768px) {
+  .gameBoard .container {
+    flex-direction: column;
+  }
+
+  .gameBoard .imgBar,
+  .gameBoard .board {
+    width: 100%;
+  }
+
+  .gameBoard .board .tile9 {
+    /* --dissension: calc(100% / 9); */
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+  }
+}
+
+/* End Game Board */
+
+
+/* * Message  */
+.message {
+  background: url('../imgs/messages/gameOver/1.jpg');
+  background-size: cover;
+  height: 100vh;
+  /* width: 100vw; */
+  transition: all 0.6s ease;
+  -webkit-transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -ms-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+}
+
+.message .container {
+  width: 100%;
+  height: 100%;
+}
+
+.message .container .gameOver {
+  width: 80%;
+  position: fixed;
+  top: 20px;
+}
+
+.message .container .gameOver .btn-danger {
+  color: #fff;
+  background-color: #c804ff;
+  border-color: #c804ff;
+}
+
+.message .container .gameOver .btn-danger:hover {
+  color: #fff;
+  background-color: #d044f7;
+  border-color: #b91fe3;
+}
+
+.message .confirmMessage p {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.8;
+  color: #f807f8;
+  background: #ffffffa8;
+  padding: 10px 5px;
+  border-radius: 15px;
+}
+
+/* End Message  */
