@@ -144,6 +144,7 @@ function getLogin(e) {
 function initializeGame(e) {
   // Selected Group
   let selectedGroup = this.id;
+  console.log(selectedGroup);
 
   // Hide the Groups Section & Show The Game Board
   groups.classList.add("hide");
@@ -202,6 +203,8 @@ function createImgBar(num, selectedGroup) {
 }
 
 function createBoard(rows, columns, selectedGroup) {
+  console.log(selectedGroup + 'inside CreateBoard');
+
   for (let r = 0; r < rows; r++) { // rows
     for (let c = 0; c < columns; c++) { // columns
       tile = document.createElement("div");
@@ -264,6 +267,16 @@ function selectTileImg(e) {
   } else {
     errors++;
     errorCount.innerText = errors;
+    // If Number of Errors Exceed specific number based on level ==> GameOver
+    if (userLevel == 'levelOne') {
+      if (errors == 10) {
+        finishGame("GameOver");
+      };
+    } else if (userLevel == 'levelTwo') {
+      if (errors == 20) {
+        finishGame("GameOver");
+      };
+    }
   };
 
   //d ) Check the selectedBoardImg if completed or not and compar it with the board solution 
@@ -321,7 +334,7 @@ function showWingingMessage() {
 
 function showGameOverMessage() {
   console.log("GameOver" + "حظ سعيد المرة القادمة 😂");
-  confirmMessage.innerHTML = `<p>Time is over.. 😢🤷‍♀️ Do you want to play again?</p>`;
+  confirmMessage.innerHTML = `<p>Game Over.. 😢🤷‍♀️ Do you want to play again?</p>`;
 };
 
 // Function to convert the API fetched json data form string ===> to array of arrays.. Each inner array represent a row of the 4x4 grid board.. 
@@ -404,13 +417,16 @@ function playAgin(e) {
   board.innerHTML = ''; // reset The Game Gride board
   imgBar.innerHTML = ''; // reset The imgBar
   message.classList.add("hide"); // hide The message Section
+  // reset Errors Counter
+  errors = 0;
+  errorCount.innerText = errors;
   // Reset Timer & clearInterval
   clearInterval(countInterval);
-  getData(); // fetch data again
-  getLogin(e);
+  // getData(); // fetch data again
+  // getLogin(e); // call get login again to update the board grid array and its solution
 
   groups.classList.remove("hide"); // Show Group Message
-  groupBtn.forEach(btn => {
-    btn.addEventListener('click', initializeGame); //click
-  });
+  // groupBtn.forEach(btn => {
+  //   btn.addEventListener('click', initializeGame); //click
+  // });
 }
